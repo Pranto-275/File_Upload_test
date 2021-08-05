@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 
 Route::post('/fileUp', 'UploadController@onFile');
+
+
+Route::get('/filedownload', 'DownloadController@onDownload');
