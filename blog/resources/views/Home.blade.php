@@ -22,6 +22,8 @@
 @section('script')
 <script>
     function onUpload(){
+        let spinnerLod = "<div class='spinner-border text-white shadow-sm' role='status'></div>"
+        $('#UploadBtnID').html(spinnerLod)
        let myfile = document.getElementById('FileID').files[0];
     //    let myfilename = myfile.name;
     //    let myfilesize = myfile.size;
@@ -39,8 +41,24 @@
 
         axios.post(url,FileData,config)
         .then(function (response) {
+            if(response.status==200){
+                $('#UploadBtnID').html('Upload Success')
+                setTimeout(function(){
+                    $('#UploadBtnID').html('Upload');
+                }, 3000);
+
+            }else{
+                $('UploadBtnID').html('Upload Fail')
+                setTimeout(function(){
+                    $('#UploadBtnID').html('Upload');
+                }, 3000);
+            }
         })
         .catch(function (error) {
+            $('UploadBtnID').html('Upload Fail')
+                setTimeout(function(){
+                    $('#UploadBtnID').html('Upload');
+                }, 3000);
         })
     }
 </script>

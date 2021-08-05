@@ -8,6 +8,7 @@ class UploadController extends Controller
 {
     public function onFile(Request $request)
     {
-        $request->file('Filekey')->store('images');
+        $result = $request->file('Filekey')->store('images');
+        return $result;
     }
 }
