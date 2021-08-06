@@ -22,3 +22,4 @@ Route::post('/fileUp', 'UploadController@onFile');
 
 
 Route::get('/filedownload', 'DownloadController@onDownload');
+Route::get('/filelist', 'DownloadController@onSelectFileList');

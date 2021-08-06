@@ -17,10 +17,28 @@
                             <td> <h6 id="uploadMBid">00</h6></td>
                             <td> <h6 id="uploadperMBid">00</h6></td>
                         </tr>
+
                     </table>
                </div>
            </div>
         </div>
+
+        <div class="col-md-4 card text-center p-3 m-4">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Download</td>
+                </tr>
+                </thead>
+
+                <tbody class="tableData">
+
+                </tbody>
+            </table>
+
+         </div>
+
     </div>
 </div>
 
@@ -28,7 +46,26 @@
 
 
 @section('script')
-<script>
+<script type="text/javascript">
+
+
+
+
+        getFileList();
+        function getFileList(){
+            axios.get('/filelist').then(function (response) {
+              var JSONDATA=  response.data;
+              $.each(JSONDATA,function (i) {
+                  $('<tr>').html(
+                      "<td>"+JSONDATA[i].id+"</td> " +
+                      "<td><a href='/fileDownload/"+JSONDATA[i].my_file+"'class='btn  btn-primary'   >Download</button></td>"
+                  ).appendTo('.tableData');
+              })
+            }).catch(function (error) {
+            })
+        }
+
+
     function onUpload(){
         // let spinnerLod = "<div class='spinner-border text-white shadow-sm' role='status'></div>"
         // $('#UploadBtnID').html(spinnerLod)
