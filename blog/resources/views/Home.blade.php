@@ -58,9 +58,11 @@
               $.each(JSONDATA,function (i) {
                   $('<tr>').html(
                       "<td>"+JSONDATA[i].id+"</td> " +
-                      "<td><a href='/fileDownload/"+JSONDATA[i].my_file+"'class='btn  btn-primary'   >Download</button></td>"
+                      "<td><a href='/filedownload/"+JSONDATA[i].my_file+"'class='btn  btn-primary'   >Download</button></td>"
                   ).appendTo('.tableData');
               })
+
+
             }).catch(function (error) {
             })
         }

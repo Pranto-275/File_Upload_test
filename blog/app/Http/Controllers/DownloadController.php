@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class DownloadController extends Controller
 {
-    public function onDownload()
+    public function onDownload($filename, $name)
     {
-        // $result = Storage::download('images/GEAKfGwkKKErsmOIlD59T5GyV0DfM4vBps9ZQebb.jpg');
-        // return $result;
+        $result = Storage::download($filename . "/" . $name);
+        return $result;
     }
 
     public function onSelectFileList()
